@@ -19,6 +19,13 @@ chiuns: chiuns.sh kjv.awk chiuns.tsv
 	tar cz kjv.awk chiuns.tsv >> $@
 	chmod +x $@
 
+cuv: cuv.sh kjv.awk cuv.tsv
+	cat cuv.sh > $@
+	echo 'exit 0' >> $@
+	echo '#EOF' >> $@
+	tar cz kjv.awk cuv.tsv >> $@
+	chmod +x $@
+
 test: kjv.sh
 	shellcheck -s sh kjv.sh
 

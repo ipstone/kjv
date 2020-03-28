@@ -21,6 +21,8 @@ d$index = paste0(d$V1, " ", d$V4, ":", d$V5)
 # d = d[1:10, ]
 d$verse =sapply(d$index, get_darby)
 
+# Remove the line breaks in verse
+d$verse = gsub("\n", " ", d$verse, fixed=T)
 
 # Save the converted version
 d1 = d[, .(V1, V2, V3, V4, V5, verse)]
