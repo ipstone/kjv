@@ -148,6 +148,11 @@ function bookmatches(book, bookabbr, query) {
 	if (substr(book, 1, length(query)) == query) {
 		return book
 	}
+	
+	# Handle "The Acts" special case - allow "acts" to match "theacts"
+	if (book == "theacts" && query == "acts") {
+		return book
+	}
 }
 
 function printverse(verse,    word_count, characters_printed) {
